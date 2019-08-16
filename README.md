@@ -1,6 +1,6 @@
-# Ionic v4 Tutorial: Photo Gallery app
+# Ionic v4 Tutorial: Sidebar & Tabs Menu
 
-A tutorial app that walks the user through creating a Photo Gallery app. We begin with the Ionic "tabs" starter app, incrementally converting the About tab to a Photo Gallery experience.
+A tutorial app that walks the user through creating a Sidemenu with Tabs menu app. We begin with the Ionic "tabs" starter app, incrementally converting the About tab to a Boilerplate template.
 
 ## Structure
 The complete source code is contained within. Please follow along with the [complete guide here](https://beta.ionicframework.com/docs/developer-resources/guides/first-app-v4/intro/).
