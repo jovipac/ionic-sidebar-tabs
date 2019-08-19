@@ -45,6 +45,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'support',
+        children: [
+          {
+            path: '',
+            loadChildren: () => import('../pages/support/support.module').then(m => m.SupportModule)
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/app/tabs/home',
         pathMatch: 'full'

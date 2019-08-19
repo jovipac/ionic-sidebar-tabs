@@ -34,6 +34,7 @@ export class UserData {
   login(username: string): Promise<any> {
     return this.storage.set(this.HAS_LOGGED_IN, true).then(() => {
       this.setUsername(username);
+      this.setPassword('12345678');
       return this.events.publish('user:login');
     });
   }
@@ -57,7 +58,17 @@ export class UserData {
     return this.storage.set('username', username);
   }
 
+  setPassword(password: string): Promise<any> {
+    return this.storage.set('password', password);
+  }
+
   getUsername(): Promise<string> {
+    return this.storage.get('username').then((value) => {
+      return value;
+    });
+  }
+
+  getPassword(): Promise<string> {
     return this.storage.get('username').then((value) => {
       return value;
     });

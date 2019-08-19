@@ -1,9 +1,17 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
+import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Platform } from '@ionic/angular';
-import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { Keyboard } from '@ionic-native/keyboard/ngx';
 
+import { environment } from '@env/environment';
+import { Logger, I18nService, untilDestroyed } from '@app/core';
+
+const log = new Logger('App');
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -30,14 +38,21 @@ export class AppComponent implements OnInit {
   ];
 
   constructor(
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private titleService: Title,
+    private translateService: TranslateService,
     private platform: Platform,
+    private keyboard: Keyboard,
+    private statusBar: StatusBar,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private i18nService: I18nService    
   ) {
     this.initializeApp();
   }
 
-  async ngOnInit() {}
+  async ngOnInit() {
+  }
 
   initializeApp() {
     this.platform.ready().then(() => {
@@ -45,4 +60,5 @@ export class AppComponent implements OnInit {
       this.splashScreen.hide();
     });
   }
+
 }
